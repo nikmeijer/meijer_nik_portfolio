@@ -11,11 +11,59 @@
 </head>
 
 <body>
-    <h1 class="hidden">Nik Meijer Portfolio</h1>
+    <h1 class="hidden">Nik Meijer Case Study</h1>
 
     <header class="grid-con">
-
+        <h2 class="hidden">Header</h2>
+        <div id="logo" class="box col-span-2 m-col-span-2 l-col-span-2 xl-col-span-2"></div>
+        <nav
+            class="box no-mobile m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 xl-col-start-10 xl-col-end-13">
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-nav" class="col-start-3 col-end-5">
+            <input type="checkbox" id="overlay-input">
+            <label for="overlay-input" id="overlay-button"><span></span></label>
+            <div id="overlay">
+                <ul>
+                    <li><a href="index.html#projects">Case Study</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Mobile Menu -->
     </header>
+
+    <section id="case-study-con" class="grid-con">
+        <h2>Project Title</h2>
+        <div id="case-study"
+            class="box col-span-4 m-col-start-4 m-col-end-10 l-col-start-4 l-col-end-10 xl-col-start-4 xl-col-end-10">
+            <img src="#" alt="photo here">
+            <p>filler text</p>
+            <p>filler text</p>
+            <img src="#" alt="photo here">
+            <p>filler text</p>
+            <p>filler text</p>
+            <img src="#" alt="photo here">
+            <h3>The Final Product</h3>
+            <p>filler text</p>
+            <p>filler text</p>
+        </div>
+    </section>
+
+    <section id="contact" class="grid-con">
+        <h2 class="hidden">Contact</h2>
+        <div id="contact-form" class="col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12">
+            <form action="submit-form.php" method="post">
+                <label for="message">Typpe your message</label>
+                <textarea id="message" name="message" required></textarea>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Contact Me!</button>
+            </form>
+        </div>
+    </section>
 
     <footer class="grid-con">
 

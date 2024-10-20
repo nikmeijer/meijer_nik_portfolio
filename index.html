@@ -15,8 +15,22 @@
 
     <header class="grid-con">
         <h2 class="hidden">Header</h2>
-        <div id="logo" class="box col-span-4 m-col-span-2 l-col-span-2 xl-col-span-2"></div>
-        <nav class="box col-span-4 m-col-span-10 l-col-span-10 xl-col-span-10"></nav>
+        <div id="logo" class="box col-span-2 m-col-span-2 l-col-span-2 xl-col-span-2"></div>
+        <nav
+            class="box no-mobile m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 xl-col-start-10 xl-col-end-13">
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-nav" class="col-start-3 col-end-5">
+            <input type="checkbox" id="overlay-input">
+            <label for="overlay-input" id="overlay-button"><span></span></label>
+            <div id="overlay">
+                <ul>
+                    <li><a href="index.html#projects">Case Study</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Mobile Menu -->
     </header>
 
     <section id="hero" class="grid-con">
