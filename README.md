@@ -1,6 +1,8 @@
 ## Nik Meijer Portfolio
 
-My portfolio branding is done in a swiss design inspired style to keep simplicity. I used lots of negative space and sorted content into big blocks for an easy to follow, simple, effective structure. This is a design portfolio so when people see it I want them to see something new. Something I can bring to the table.
+My portfolio branding is done in a swiss design inspired style to keep simplicity. I use lots of negative space and sorted content into big blocks for an easy to follow, simple, effective structure. This is a design portfolio so when people see it I want my site to capture their eye and keep them looking all through the site. 
+
+This is a design focused portfolio, specifically focusing on graphic, layout, and motion design. I would like to show my understanding of design concepts and elements and my ability to put them into practice to create a visual experience out of every design.
 
 ## The Concept
 
