@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nik Meijer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -35,7 +35,27 @@
 
     <section id="hero" class="grid-con">
         <h2 class="hidden">Graphic Design By Nik</h2>
-        <div id="hero-text" class="box col-span-full m-col-span-12 l-col-span-12 xl-col-span-12"></div>
+        <div id="hero-text" class="box col-span-full m-col-span-12 l-col-span-12 xl-col-span-12">
+        </div>
+
+        <!-- Video -->
+        <section id="player-container"
+            class="col-span-4 m-col-start-4 m-col-end-10 l-col-start-4 l-col-end-10 xl-col-start-4 xl-col-end-10">
+            <video controls preload="metadata" poster="images/placeholder.jpg">
+                <source src="../videos/video.mp4" type="video/mp4">
+                <source src="../videos/video.webm" type="video/webm">
+                <p>Uh oh, your browser does not support this video!</p>
+            </video>
+            <div class="video-controls hidden" id="video-controls">
+                <button id="play-button"><i class="fa fa-play-circle-o"></i></button>
+                <button id="pause-button"><i class="fa fa-pause-circle-o"></i></button>
+                <button id="stop-button"><i class="fa fa-stop-circle-o"></i></button>
+                <i class="fa fa-volume-up"></i>
+                <input type="range" id="change-vol" step="0.01" min="0" max="1" value="1">
+                <button id="full-screen"><i class="fa fa-arrows-alt"></i></button>
+            </div>
+        </section>
+
         <div id="hero-subtitle" class="box col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12"></div>
     </section>
 
@@ -73,6 +93,7 @@
     <footer class="grid-con">
 
     </footer>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
