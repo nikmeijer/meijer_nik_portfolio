@@ -1,0 +1,89 @@
+#projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.project {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.project h2 {
+    margin: auto;
+    padding-bottom: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    display: inline;
+    margin-bottom: 10px;
+    border-bottom: white 2px solid;
+    text-justify: center;
+}
+
+.project h2 span {
+    display: inline;
+    color: #FF4200;
+}
+
+.project h2 span img {
+    height: 1em;
+}
+
+#projects-flex {
+    display: flexbox;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project p {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-justify: center;
+    align-self: center;
+}
+
+
+.project-showcase {
+    width: 50%;
+    align-self: center;
+}
+
+.project-showcase img {
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .project-showcase {
+        width: fit-content;
+    }
+}
+
+.casestudy-link {
+    margin-top: 50px;
+    padding-top: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.casestudy-link:hover {
+    color: #483DFF;
+}

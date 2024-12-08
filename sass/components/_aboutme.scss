@@ -1,0 +1,55 @@
+#aboutme {
+    background-color: #090815;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#aboutme h2 {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    display: inline;
+    margin-bottom: 5px;
+    border-bottom: white 1px solid;
+}
+
+#aboutme h2 span {
+    display: inline;
+}
+
+#aboutme h2 span img {
+    height: 1em;
+}
+
+#portrait {
+    padding: 5em;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    height: 25em;
+    background-image: url('../images/nik.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 3px solid #FF4200;
+    border-right: 3px solid #FF4200;
+}
+
+#aboutme p {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.5em;
+    line-height: 2em;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+#aboutme p:last-of-type {
+    margin-bottom: 50px;
+}

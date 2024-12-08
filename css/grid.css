@@ -84,6 +84,12 @@ IT WAS SO SIMPLE)*/
    }
 }
 
+.mobile {
+   @media screen and (min-width: 768px) {
+      display: none;
+   }
+}
+
 .col-auto {
    grid-column: auto;
 }
