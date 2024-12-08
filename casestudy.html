@@ -7,6 +7,7 @@
     <title>Nik Meijer</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
 
     <header class="full-width-grid-con">
         <h2 class="hidden">Header</h2>
-        <div id="logo" class="col-start2 col-end-2">
+        <div id="logo" class="col-start-2 col-end-2">
             <a href="index.html">
                 <img src="images/nik-logo-hc.svg" alt="Nik's Portfolio Logo">
             </a>
@@ -46,20 +47,20 @@
             <span><img src="images/doubleslash-icon.svg"></span>
             Cinema 4D Earbuds
         </h2>
-        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+        <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
             The goal of this project was to create a pair
             of wireless earbuds with a charging case in Cinema 4D. and make
             an
             animation for a promotional video.
         </p>
-        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+        <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
             After searching the internet for inspiration I decided the Sony Linkbuds would provide an interesting
             challenge to build
             out, as they have a unique open loop shape to them.
         </p>
-        <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/bud-cs-1.png"
+        <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/bud-cs-1.jpg"
             alt="Earbuds 3d Model">
-        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+        <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
             Building the model proved to be less of a challenge than I anticipated. To build out the loop, I set up the
             framework
             for the donut shape using circles and the put them in a loft to link it all. The only trouble I ran into was
@@ -70,31 +71,32 @@
             alt="Earbuds loop in cinema 4d">
         <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/bud-cs-3.png"
             alt="Earbuds in cinema 4d">
-        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+        <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
             One other challenge I faced was linking all the objects into one without creating abrupt edges. I was able
             to
             sort this
             out by creating an extra piece to go between the loop and the shell of the buds, which created a
             fade/crossover.
         </p>
-        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+        <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
             Once the model was built out, I built the shell using a collider, I made some mock-up internals for the
             earbuds, and
             created materials for it to simulate a glossy plastic.
         </p>
-        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-4.png"
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-4.jpg"
             alt="animation sequence frame 1">
-        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-5.png"
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-5.jpg"
             alt="animation sequence frame 2">
-        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-6.png"
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-6.jpg"
             alt="animation sequence frame 3">
-        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-7.png"
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-7.jpg"
             alt="animation sequence frame 4">
-        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-8.png"
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-8.jpg"
             alt="animation sequence frame 5">
-        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" g src="images/bud-cs-9.png"
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-9.jpg"
             alt="animation sequence frame 6">
-        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+        <!--would like to find an alternative better way to style this gallery, maybe a carousel orimage lightbox with a carousel, or a drig to display them better-->
+        <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
             The final step was animating. Once I had all the materials set up, and lighting was set, I was ready to
             keyframe, and
             then finally rendering out with redshift to a png sequence which I then arranged in After Effects, and
@@ -145,7 +147,20 @@
             <li><a href="index.html#contact">contact</a></li>
         </nav>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis()
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+    </script>
 </body>
 
 </html>
