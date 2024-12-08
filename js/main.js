@@ -1,3 +1,7 @@
+
+
+//video start
+
 //variables
 console.log("JS is running");
 
@@ -34,3 +38,5 @@ function stopVideo() {
 playButton.addEventListener("click", playVideo);
 pauseButton.addEventListener("click", pauseVideo);
 stopButton.addEventListener("click", stopVideo);
+
+//video end

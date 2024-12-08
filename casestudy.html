@@ -12,60 +12,138 @@
 <body>
     <h1 class="hidden">Nik Meijer Case Study</h1>
 
-    <header class="grid-con">
+    <header class="full-width-grid-con">
         <h2 class="hidden">Header</h2>
-        <div id="logo" class="box col-span-2 m-col-span-2 l-col-span-2 xl-col-span-2"></div>
-        <nav
-            class="box no-mobile m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 xl-col-start-10 xl-col-end-13">
+        <div id="logo" class="col-start2 col-end-2">
+            <a href="index.html">
+                <img src="images/nik-logo-hc.svg" alt="Nik's Portfolio Logo">
+            </a>
+        </div>
+        <nav class="m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 xl-col-start-10 xl-col-end-13">
+            <h2 class="hidden">Nav</h2>
+            <li><a href="index.html#aboutme">about me</a></li>
+            <li><a href="index.html#projects">projects</a></li>
+            <li><a href="index.html#contact">contact</a></li>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-nav" class="col-start-3 col-end-5">
+        <div id="mobile-nav" class="col-start-3 col-end-5 mobile">
             <input type="checkbox" id="overlay-input">
             <label for="overlay-input" id="overlay-button"><span></span></label>
             <div id="overlay">
                 <ul>
-                    <li><a href="index.html#projects">Case Study</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="index.html#aboutme">about me</a></li>
+                    <li><a href="index.html#projects">projects</a></li>
+                    <li><a href="index.html#contact">contact</a></li>
                 </ul>
             </div>
         </div>
         <!-- End Mobile Menu -->
     </header>
 
-    <section id="case-study-con" class="grid-con">
-        <h2>Project Title</h2>
-        <div id="case-study"
-            class="box col-span-4 m-col-start-4 m-col-end-10 l-col-start-4 l-col-end-10 xl-col-start-4 xl-col-end-10">
-            <img src="#" alt="photo here">
-            <p>filler text</p>
-            <p>filler text</p>
-            <img src="#" alt="photo here">
-            <p>filler text</p>
-            <p>filler text</p>
-            <img src="#" alt="photo here">
-            <h3>The Final Product</h3>
-            <p>filler text</p>
-            <p>filler text</p>
-        </div>
+    <section id="case-study" class="grid-con">
+        <h2 class="col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12">
+            <span><img src="images/doubleslash-icon.svg"></span>
+            Cinema 4D Earbuds
+        </h2>
+        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+            The goal of this project was to create a pair
+            of wireless earbuds with a charging case in Cinema 4D. and make
+            an
+            animation for a promotional video.
+        </p>
+        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+            After searching the internet for inspiration I decided the Sony Linkbuds would provide an interesting
+            challenge to build
+            out, as they have a unique open loop shape to them.
+        </p>
+        <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/bud-cs-1.png"
+            alt="Earbuds 3d Model">
+        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+            Building the model proved to be less of a challenge than I anticipated. To build out the loop, I set up the
+            framework
+            for the donut shape using circles and the put them in a loft to link it all. The only trouble I ran into was
+            the
+            heirarchy of layers, and arranging the circles in a way that they filled out and closed the loop
+        </p>
+        <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/bud-cs-2.png"
+            alt="Earbuds loop in cinema 4d">
+        <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/bud-cs-3.png"
+            alt="Earbuds in cinema 4d">
+        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+            One other challenge I faced was linking all the objects into one without creating abrupt edges. I was able
+            to
+            sort this
+            out by creating an extra piece to go between the loop and the shell of the buds, which created a
+            fade/crossover.
+        </p>
+        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+            Once the model was built out, I built the shell using a collider, I made some mock-up internals for the
+            earbuds, and
+            created materials for it to simulate a glossy plastic.
+        </p>
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-4.png"
+            alt="animation sequence frame 1">
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-5.png"
+            alt="animation sequence frame 2">
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-6.png"
+            alt="animation sequence frame 3">
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-7.png"
+            alt="animation sequence frame 4">
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/bud-cs-8.png"
+            alt="animation sequence frame 5">
+        <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" g src="images/bud-cs-9.png"
+            alt="animation sequence frame 6">
+        <p class="col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+            The final step was animating. Once I had all the materials set up, and lighting was set, I was ready to
+            keyframe, and
+            then finally rendering out with redshift to a png sequence which I then arranged in After Effects, and
+            finally, I had my
+            result.
+        </p>
     </section>
 
-    <section id="contact" class="grid-con">
-        <h2 class="hidden">Contact</h2>
-        <div id="contact-form" class="col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12">
+    <section id="contact" class="full-width-grid-con">
+        <h2 class="col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12"><span><img
+                    src="images/doubleslash-icon.svg"></span>Contact Me <span>Today</span>
+        </h2>
+        <p>
+            Like what you see? Want to see more? Let's work together! Use the contact form to reach out, and I will get
+            back to you
+            ASAP!
+        </p>
+        <div id="contact-form" class="col-span-full m-col-span-full l-col-span-full xl-col-span-full">
             <form action="submit-form.php" method="post">
-                <label for="message">Typpe your message</label>
-                <textarea id="message" name="message" required></textarea>
-                <label for="name">Name</label>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-                <label for="email">Email Address</label>
+
+                <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
-                <button type="submit">Contact Me!</button>
+
+                <label for="subject">Message:</label>
+                <textarea id="message" name="message" required>Type your message here:</textarea>
+
+                <button type="submit">Submit</button>
             </form>
         </div>
     </section>
 
-    <footer class="grid-con">
-
+    <footer class="full-width-grid-con">
+        <h2 class="hidden">Footer</h2>
+        <div id="logo" class="col-start-2 col-end-2">
+            <a href="index.html">
+                <img src="images/nik-logo-hc.svg" alt="Nik's Portfolio Logo">
+            </a>
+        </div>
+        <nav class="m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 xl-col-start-10 xl-col-end-13">
+            <h2 class="hidden">Nav</h2>
+            <li><a href="index.html#aboutme">about me</a></li>
+            <li><a href="index.html#projects">projects</a></li>
+            <li><a href="index.html#contact">contact</a></li>
+        </nav>
     </footer>
     <script src="js/main.js"></script>
 </body>
