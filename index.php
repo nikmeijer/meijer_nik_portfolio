@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    require_once("../includes/connect.php");
+    require_once('includes/connect.php');
 
     $query = "SELECT path_name AS image, project_id FROM images, projects WHERE projects.id = project_id";
 
-    $results = mysqli_query($connect,$query);
+    $results = mysqli_query($connect, $query);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -113,15 +113,15 @@
     <section id="projects" class="grid-con">
         <div id="projects-flex" class="col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12">
             <div id="case-study" class="project">
-                <h2 class="hero-item">
-                    <span><img src="images/doubleslash-icon.svg"></span>
-                    See My <span>Designs!</span>
-                </h2>
-                <p>My latest and best design work.</p>
                 <?php
                     while($row = mysqli_fetch_array($results)) {
-                        echo '<img class="project-showcase" src="images/'.$row['path_name'].'">';
-                    }
+                        echo '<h2 class="hero-item">
+                                    <span><img src="images/doubleslash-icon.svg"></span>
+                                    See My <span>Designs!</span>
+                                </h2>
+                                <p>My latest and best design work.</p>
+                                <img class="project-showcase" src="images/'.$row['path_name'].'">'
+                    };
                 ?>
                 <button><a class="casestudy-link" href="casestudy.php">See Now.</a></button>
             </div>
@@ -138,7 +138,7 @@
             ASAP!
         </p>
         <div id="contact-form" class="col-span-full m-col-span-full l-col-span-full xl-col-span-full">
-            <form action="submit-form.php" method="post">
+            <form method="post" action="sendmail.php">
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required>
 
@@ -151,7 +151,7 @@
                 <label for="subject">Message:</label>
                 <textarea id="message" name="message" required>Type your message here:</textarea>
 
-                <button type="submit">Submit</button>
+                <button type="send">Submit</button>
             </form>
         </div>
     </section>

@@ -31,6 +31,7 @@ My designs aren't perfect yet but everyday I'll strive to get closer
 ## History
 
 Created October 15 - originally intended on reusing last years but moved everything here for a fresh canvas
+Dec 8 - Update: huge progress!!! had troubles with the php, it keeps breaking and i dont know if it 
 
 ## Credits
 
