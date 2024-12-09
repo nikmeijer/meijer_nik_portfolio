@@ -13,7 +13,6 @@
     const csimg = document.querySelectorAll(".cs-img");
     const cstext = document.querySelectorAll(".cs-text");
 
-    console.log("test epic");
     gsap.set(aboutme, { opacity: 0, y: 100 });
     gsap.to(aboutme, {
         opacity: 1,
