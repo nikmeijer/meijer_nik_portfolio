@@ -1,68 +1,71 @@
 <?php
 
-require_once('connect.php');
+require_once('includes/connect.php');
 
 ///gather the form content
-$subject = $_POST['subject'];
 $name = $_POST['name'];
+$subject = $_POST['subject'];
 $email = $_POST['email'];
-$msg = $_POST['message'];
+$message = $_POST['message'];
 
 $errors = [];
 
 //validate and clean these values
 
-$subject = trim($subject);
-$name = trim($name);
-$email = trim($email);
-$msg = trim($msg);
-
-if(empty($subject)) {
-    $errors['subject'] = 'Please include a subject!';
-}
 
 if(empty($name)) {
-    $errors['name'] = 'Please include your name';
+    $errors['name'] = 'Name cant be empty';
 }
 
-if(empty($msg)) {
-    $errors['message'] = 'Message field cant be empty';
+if(empty($subject)) {
+    $errors['subject'] = 'Subject cant be empty';
+}
+
+if(empty($message)) {
+    $errors['Message'] = 'Message cant be empty';
 }
 
 if(empty($email)) {
-    $errors['email'] = 'You must provide an email address';
-} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors['legit_email'] = 'Please try again.';
+    $errors['email'] = 'You must provide an email';
+} elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors['legit_email'] = 'You must provide a REAL email';
 }
 
 if(empty($errors)) {
 
     //insert these values as a new row in the contacts table
 
-    $query = "INSERT INTO contacts (subject, name, email, message) VALUES('.$subject.','.$name.','.$email.','.$msg.')";
+    $query = "INSERT INTO contact (name, subject, email, message) VALUES(:name, :subject, :email, :message)";
 
-    if(mysqli_query($connect, $query)) {
+    $stmt = $connect->prepare($query);
 
-//format and send these values in an email
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':subject', $subject);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':message', $message);
 
-$to = 'nikolai@meijers.ca';
-$subject = 'Portfolio (!)';
+    if ($stmt->execute()) {
+        // Format and send these values in an email
+        $to = 'n_meijer@fanshaweonline.ca';
+        $subject = 'Message from your Portfolio site!';
 
-$message = "You have received a new contact form submission:\n\n";
-$message .= "Name: ".$name."\n";
-$message .= "Email: ".$email."\n\n";
-//build out rest of message body...
+        $message = "You have received a new contact form submission:\n\n";
+        $message .= "Name: " . $name . " " . $field . "\n";
+        $message .= "Email: " . $email . "\n\n";
+        // Build out the rest of the message body...
 
-mail($to,$subject,$message);
+        mail($to, $subject, $message);
 
-header('Location: index.php');
+        header('Location: index.php');
+        exit;
+    } else {
 
-}else{
+
     for($i=0; $i < count($errors); $i++) {
         echo $errors[$i].'<br>';
     }
 }
-
 }
+
 
 ?>

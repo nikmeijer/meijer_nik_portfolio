@@ -4,11 +4,38 @@
 <?php
 require_once('includes/connect.php');
 
-$query = 'SELECT * FROM projects, images WHERE project_id = projects.id ='.$_GET['id'];
+/* $query = 'SELECT * FROM projects, images WHERE images.project_id = projects.id AND projects.id ='.$_GET['id'];
 
 $results = mysqli_query($connect,$query);
 
-$row = mysqli_fetch_assoc($results);
+$row = mysqli_fetch_assoc($results); */
+
+/* $query = 'SELECT * FROM projects, images GROUP_CONCAT(path_name) AS paths WHERE images.project_id = projects.id AND projects.id = :projectsid'; */
+
+$query = 'SELECT projects.*, 
+            GROUP_CONCAT(images.path_name) AS paths, 
+            (SELECT path_name FROM images 
+             WHERE images.project_id = projects.id 
+             AND images.path_name LIKE "%preview%" 
+             LIMIT 1) AS preview_image 
+          FROM projects 
+          JOIN images ON images.project_id = projects.id 
+          WHERE projects.id = :projectsid';
+
+
+$stmt = $connect->prepare($query);
+
+$projectsid = $_GET['id'];
+
+$stmt->bindParam(':projectsid', $projectsid, PDO::PARAM_INT);
+
+$stmt->execute();
+
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$stmt = null;
+
+$image_array = explode(',',$row['paths'])
 ?>
 
 <head>
@@ -64,35 +91,23 @@ $row = mysqli_fetch_assoc($results);
                 <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
                     '.$row['copy2'].'
                 </p>
-                <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/'.$row['path_name'].'"
+                <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/'.$row['preview_image'].'"
                     alt="Earbuds 3d Model">
                 <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
                     '.$row['copy3'].'
                 </p>
-                <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/'.$row['path_name'].'"
-                    alt="Earbuds loop in cinema 4d">
-                <img class="cs-img col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12" src="images/'.$row['path_name'].'"
-                    alt="Earbuds in cinema 4d">
+                
                 <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
                     '.$row['copy4'].'
                 </p>
                 <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
                     '.$row['copy5'].'
-                </p>
-                <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/'.$row['path_name'].'"
-                    alt="animation sequence frame 1">
-                <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/'.$row['path_name'].'"
-                    alt="animation sequence frame 2">
-                <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/'.$row['path_name'].'"
-                    alt="animation sequence frame 3">
-                <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/'.$row['path_name'].'"
-                    alt="animation sequence frame 4">
-                <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/'.$row['path_name'].'"
-                    alt="animation sequence frame 5">
-                <img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/'.$row['path_name'].'"
-                    alt="animation sequence frame 6">
-                <!--would like to find an alternative better way to style this gallery, maybe a carousel orimage lightbox with a carousel, or a drig to display them better-->
-                <p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
+                </p>';
+                for ($i = 1; $i < count($image_array); $i++) {
+                    echo '<img class="cs-img col-span-6 m-col-span-6 l-col-span-6 xl-col-span-6" src="images/' . $image_array[$i] . '">';
+                }
+
+                echo '<p class="cs-text col-span-12 m-col-span-12 l-col-span-12 xl-col-span-12">
                     '.$row['copy6'].'
                 </p>';
         ?>
@@ -108,7 +123,7 @@ $row = mysqli_fetch_assoc($results);
             ASAP!
         </p>
         <div id="contact-form" class="col-span-full m-col-span-full l-col-span-full xl-col-span-full">
-            <form action="submit-form.php" method="post">
+            <form action="sendmail.php" method="post">
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required>
 
@@ -118,7 +133,7 @@ $row = mysqli_fetch_assoc($results);
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="subject">Message:</label>
+                <label for="message">Message:</label>
                 <textarea id="message" name="message" required>Type your message here:</textarea>
 
                 <button type="submit">Submit</button>
