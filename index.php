@@ -3,9 +3,15 @@
 <?php
     require_once('includes/connect.php');
 
-    $query = "SELECT path_name AS image, project_id FROM images, projects WHERE projects.id = project_id";
+    
 
-    $results = mysqli_query($connect, $query);
+    /* $query = "SELECT path_name AS image, project_id FROM images, projects WHERE projects.id = project_id";
+
+    $results = mysqli_query($connect, $query); */
+
+    $stmt = $connect->prepare("SELECT path_name AS image, project_id FROM images, projects WHERE projects.id = project_id AND path_name LIKE '%preview%'");
+
+$stmt->execute();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -114,16 +120,18 @@
         <div id="projects-flex" class="col-span-4 m-col-span-12 l-col-span-12 xl-col-span-12">
             <div id="case-study" class="project">
                 <?php
-                    while($row = mysqli_fetch_array($results)) {
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo '<h2 class="hero-item">
                                     <span><img src="images/doubleslash-icon.svg"></span>
                                     See My <span>Designs!</span>
                                 </h2>
                                 <p>My latest and best design work.</p>
-                                <img class="project-showcase" src="images/'.$row['path_name'].'">'
-                    };
+                                <img class="project-showcase" src="images/'.$row['image'].'">
+                                <button><a class="casestudy-link" href="casestudy.php?id='.$row['project_id'].'">See Now.</a></button>';
+                    }
+
                 ?>
-                <button><a class="casestudy-link" href="casestudy.php">See Now.</a></button>
+                
             </div>
         </div>
     </section>
