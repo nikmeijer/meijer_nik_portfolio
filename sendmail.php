@@ -1,27 +1,26 @@
 <?php
+ob_start(); // Start output buffering at the top
 
 require_once('includes/connect.php');
 
 ///gather the form content
 $name = $_POST['name'];
-$subject = $_POST['subject'];
+$form_subject = $_POST['subject'];
 $email = $_POST['email'];
-$message = $_POST['message'];
+$form_message = $_POST['message'];
 
 $errors = [];
 
 //validate and clean these values
-
-
 if(empty($name)) {
     $errors['name'] = 'Name cant be empty';
 }
 
-if(empty($subject)) {
+if(empty($form_subject)) {
     $errors['subject'] = 'Subject cant be empty';
 }
 
-if(empty($message)) {
+if(empty($form_message)) {
     $errors['Message'] = 'Message cant be empty';
 }
 
@@ -32,40 +31,45 @@ if(empty($email)) {
 }
 
 if(empty($errors)) {
-
     //insert these values as a new row in the contacts table
-
     $query = "INSERT INTO contact (name, subject, email, message) VALUES(:name, :subject, :email, :message)";
+    
+    try {
+        $stmt = $connect->prepare($query);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':subject', $form_subject);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':message', $form_message);
 
-    $stmt = $connect->prepare($query);
+        if ($stmt->execute()) {
+            // Format and send these values in an email
+            $to = 'n_meijer@fanshaweonline.ca';
+            $email_subject = 'Message from your Portfolio site!';
+            $email_body = "You have received a new contact form submission:\n\n";
+            $email_body .= "Name: " . $name . "\n";
+            $email_body .= "Email: " . $email . "\n";
+            $email_body .= "Subject: " . $form_subject . "\n";
+            $email_body .= "Message: " . $form_message . "\n";
 
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':subject', $subject);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':message', $message);
+            mail($to, $email_subject, $email_body);
 
-    if ($stmt->execute()) {
-        // Format and send these values in an email
-        $to = 'n_meijer@fanshaweonline.ca';
-        $subject = 'Message from your Portfolio site!';
-
-        $message = "You have received a new contact form submission:\n\n";
-        $message .= "Name: " . $name . " " . $field . "\n";
-        $message .= "Email: " . $email . "\n\n";
-        // Build out the rest of the message body...
-
-        mail($to, $subject, $message);
-
-        header('Location: index.php');
-        exit;
-    } else {
-
-
+            // Clear buffer and redirect
+            ob_end_clean();
+            header('Location: index.php?success=1#contact');
+            exit;
+        } else {
+            ob_end_clean();
+            echo "Database execution failed: " . implode(" - ", $stmt->errorInfo());
+        }
+    } catch (PDOException $e) {
+        ob_end_clean();
+        echo "Database error: " . $e->getMessage();
+    }
+} else {
+    ob_end_clean();
+    // Show validation errors
     for($i=0; $i < count($errors); $i++) {
         echo $errors[$i].'<br>';
     }
 }
-}
-
-
 ?>

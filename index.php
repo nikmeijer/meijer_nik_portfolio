@@ -125,7 +125,7 @@ $stmt->execute();
                                     <span><img src="images/doubleslash-icon.svg"></span>
                                     See My <span>Designs!</span>
                                 </h2>
-                                <p>My latest and best design work.</p>
+                                <p>Project Spotlights</p>
                                 <img class="project-showcase" src="images/'.$row['image'].'">
                                 <button><a class="casestudy-link" href="casestudy.php?id='.$row['project_id'].'">See Now.</a></button>';
                     }
